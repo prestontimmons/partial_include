@@ -43,6 +43,12 @@ class IncludeTagTest(TestCase):
         with self.assertRaises(TemplateDoesNotExist):
             t.render(c)
 
+    def test_suppress_error(self):
+        t = Template("{% load partial_include %}{% include 'bubble-bobble-forever-darkness.html' quiet %}")
+        c = Context()
+        output = t.render(c)
+        self.assertEqual(output, "")
+
     def test_with_space(self):
         t = Template("{% load partial_include %}{% include 'has space.html' %}")
         c = Context()
