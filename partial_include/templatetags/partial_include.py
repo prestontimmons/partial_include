@@ -38,6 +38,16 @@ class IncludeNode(Node):
 
         if self.block:
             node = self.get_block(template, self.block)
+            if node is None:
+                if self.quiet:
+                    return ""
+                else:
+                    raise TemplateDoesNotExist(
+                        "Block %s does not exist in template %s" % (
+                            self.block,
+                            self.template_name,
+                        )
+                    )
             return node.render(context)
 
         return self.render_template(template, context)
