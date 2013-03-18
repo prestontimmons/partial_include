@@ -5,7 +5,7 @@ with open("README.md") as f:
 
 
 setup(
-    name="Partial Include",
+    name="partial-include",
     version="1.0",
     author="Preston Timmons",
     url="https://github.com/prestontimmons/partial_include",
