@@ -1,6 +1,8 @@
 from setuptools import setup, find_packages
 
-f = open("README.md")
+with open("README.md") as f:
+    long_description = f.read()
+
 
 setup(
     name="Partial Include",
@@ -8,7 +10,7 @@ setup(
     author="Preston Timmons",
     url="https://github.com/prestontimmons/partial_include",
     description="A more powerful include tag for Django",
-    long_description=f.read(),
+    long_description=long_description,
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
